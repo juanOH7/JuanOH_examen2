@@ -1,31 +1,36 @@
-#include "node.hpp"
+#include <string>
 #include "person.hpp"
+#include "node.hpp"
 
-Node::Node(){}
+using namespace std;
 
-Node::Node(Person persona):persona(persona)
-{
-	next = new Node(Person());
+Node::Node(){
+
 }
-Node::~Node(){}
-
-Person Node::getValue()
-{
+Node::Node(Person persona):persona(persona){
+	next=new Node();
+	setValue(persona);
+}
+Node::~Node(){
+	delete next;
+}
+Person Node::getValue(){
 	return persona;
 }
-
-Node* Node::getNext()
-{
+Node* Node::getNext(){
 	return next;
 }
-
-void Node::setValue(Person newPersona)
-{
-	persona = newPersona;
+void Node::setValue(Person persona){
+	this->persona.setName(persona.getName());
+	this->persona.setPhone(persona.getPhone());
 }
-
-void Node::setNext(Node* newNext)
-{
-	next = newNext;
+void Node::setNext(Node* next){
+	this->next=next;
 }
-bool Node::hasNext(){}
+bool Node::hasNext(){
+	if (next!=NULL){
+		return true;
+	}else{
+		return false;
+	}
+}

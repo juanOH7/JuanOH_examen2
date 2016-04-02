@@ -1,5 +1,6 @@
 #pragma once
 #include "node.hpp"
+#include "person.hpp"
 
 using namespace std;
 
